@@ -1,0 +1,91 @@
+<!DOCTYPE html >
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>json Employes</title>
+</head>
+<body>
+
+<h1>JRostand Reperes Stade</h1>
+<hr>
+<div id="map">...</div>
+<style type="text/css">
+    /* Always set the map height explicitly to define the size of the div
+     * element that contains the map. */
+    #map {
+        height: 100%;
+    }
+
+    /* Optional: Makes the sample page fill the window. */
+    html,
+    body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+</style>
+
+<script   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7Y32T_PJHZxYcK3BJYJFNwSl6cuvLXpo&callback=initMap"></script>
+<script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+    // au chargement de la page
+    window.onload = loadDoc();
+ 
+
+    // Ajax avec JQuery
+    function loadDoc() {
+        $.ajax({
+                url: "http://localhost:8092/activite2/markersJrostand.json",
+                method: "GET",
+                //data: { id : menuId },
+                dataType: "json",
+                /* markers representera un objet JSON retourné par le serveur */
+                success: function(markers){
+                    const map = new google.maps.Map(document.getElementById("map"), {
+                         zoom: 15,
+                         center: { lat: 48.95874, lng: 2.54696 },
+    });
+    /*
+                                vous utiliserez deux boucles for
+                                - boucle for classique sur markers
+                                - boucle for in sur marker
+                             */
+    /* J'ai utilisé la même logique de boucle que pour l'exercice précédent avec l'objet CD. C'est à dire une première boucle pour parcourir tout 
+    l'objet "markers" puis une seconde pour chaque clé (latittude et longitude) des markers. */
+
+    for(let i=0;i<markers.length;i++){
+        const marker = markers[i];
+        for(let key in marker){
+            
+                            /*
+                                Créer des markers Google avec l'API Google Maps en utilisant l'objet renvoyé par
+                                le serveur web. Afficher votre map.
+                             */
+            new google.maps.Marker({
+                /* J'affiche ici chaque clé (lat et long) de chaque marker sur l'API MAP*/
+
+                position: { lat: marker.lat, lng: marker.lng },
+                 map,
+                title: marker[0],
+                zIndex: marker[3],
+      });
+
+
+        }
+        
+    }
+       
+    }
+});
+    }
+  
+ 
+  // Data for the markers consisting of a name, a LatLng and a zIndex for the
+  // order in which these markers should display on top of each other.
+  
+
+</script>
+
+</body>
+</html>
