@@ -36,7 +36,7 @@
     // Ajax avec JQuery
     function loadDoc() {
         $.ajax({
-                url: "http://localhost:8092/activite2/markersJrostand.json",
+                url: "http://localhost:8092/EXERCICE2.3.HTML/markersJrostand.json",
                 method: "GET",
                 //data: { id : menuId },
                 dataType: "json",
@@ -72,13 +72,29 @@
       });
 
 
-        }
         
-    }
+        
+    
+    const flightPlanCoordinates = [
+        {lat,lng}
+    ]
+    const flightPath = new google.maps.Polyline({
+        path: flightPlanCoordinates,
+         geodesic: true,
+        strokeColor: "#FF0000",
+        strokeOpacity: 1.0,
+        strokeWeight: 2,
+  });
+
+
+  flightPath.setMap(map);
+}
+
+}
        
     }
 });
-    }
+    
   
  
   // Data for the markers consisting of a name, a LatLng and a zIndex for the
