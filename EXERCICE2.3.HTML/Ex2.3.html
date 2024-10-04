@@ -36,7 +36,7 @@
     // Ajax avec JQuery
     function loadDoc() {
         $.ajax({
-                url: "http://localhost:8092/EXERCICE2.3.HTML/markersJrostand.json",
+                url: "markersJrostand.json",
                 method: "GET",
                 //data: { id : menuId },
                 dataType: "json",
@@ -53,10 +53,11 @@
                              */
     /* J'ai utilisé la même logique de boucle que pour l'exercice précédent avec l'objet CD. C'est à dire une première boucle pour parcourir tout 
     l'objet "markers" puis une seconde pour chaque clé (latittude et longitude) des markers. */
-
+   
     for(let i=0;i<markers.length;i++){
         const marker = markers[i];
-        for(let key in marker){
+        
+        
             
                             /*
                                 Créer des markers Google avec l'API Google Maps en utilisant l'objet renvoyé par
@@ -69,32 +70,26 @@
                  map,
                 title: marker[0],
                 zIndex: marker[3],
-      });
-
-
+            });
         
         
-    
-    const flightPlanCoordinates = [
-        {lat,lng}
-    ]
-    const flightPath = new google.maps.Polyline({
-        path: flightPlanCoordinates,
-         geodesic: true,
+      }
+      /* Je me suis servi de la documentation en recréeant des polylines sur la map*/
+      const flightPath = new google.maps.Polyline({
+        path: markers, /* Ici, je spécifie le chemin de la popyline qui est markers ce qui permettra de relier les marquers entre eux du json */
+        geodesic: true,
         strokeColor: "#FF0000",
         strokeOpacity: 1.0,
         strokeWeight: 2,
-  });
-
-
-  flightPath.setMap(map);
-}
-
-}
        
+  });
+  flightPath.setMap(map);
+
     }
 });
-    
+    }
+
+
   
  
   // Data for the markers consisting of a name, a LatLng and a zIndex for the
