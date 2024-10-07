@@ -1,10 +1,9 @@
 # Objectif : Exécuter une requête asynchrone  ajax à un serveur web #
-L'environnement de travail est constitué :
--De quatres branches :
-  -branche main 
-  -branche master qui correspond à l'activité1 
-  -branche activite2 qui correspond à l'activité2
-  -branche activite3 qui correspond à l'activité3
+## L'environnement de travail est constitué de quatre branches :
+  ### -branche main 
+  ### -branche master qui correspond à l'activité1 
+  ### -branche activite2 qui correspond à l'activité2
+  ### -branche activite3 qui correspond à l'activité3
   Rendez-vous sur chaque branche. Un fichier README vous expliquera les procédures pour pouvoir exécuter les fichiers. Avant cela, veuillez à bien cloner le repot et installer docker en suivant les étapes ci-dessous :
 
 
