@@ -1,7 +1,12 @@
 # Objectif : Exécuter une requête asynchrone  ajax à un serveur web #
 L'environnement de travail est constitué :
--De plusieurs dossiers contenant des fichiers index.html et script.js.
--D'un conteneur nginx  possédant une image à exécuter pour pouvoir exécuter les fichiers dans un environnement sur le serveur.
+-De quatres branches :
+  -branche main 
+  -branche master qui correspond à l'activité1 
+  -branche activite2 qui correspond à l'activité2
+  -branche activite3 qui correspond à l'activité3
+  Rendez-vous sur chaque branche. Un fichier README vous expliquera les procédures pour pouvoir exécuter les fichiers. Avant cela, veuillez à bien cloner le repot et installer docker en suivant les étapes ci-dessous :
+
 
 ## 1) Cloner le répot 
 Vous devez cloner ce répot dans un système d'exploitation  ubuntu (par vmware ou via un invité de commande avec wsl sur windows) en utilisant la commande suivante :
