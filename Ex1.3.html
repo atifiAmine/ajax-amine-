@@ -19,15 +19,15 @@
 	// Ajax avec JQuery
 	function loadDoc() {
 		$.ajax({
-					url: "http://localhost:8092/cd_catalog.json",
+					url: "http://localhost:8091/cd_catalog.json",
 					method: "get",
 					dataType: "json",
 					success: function(CDs){
 						for(let i=0;i<CDs.length;i++){
-         console.log("CD[" + i + "]=");
-         CD = CDs[i];
-         for(key in CD){
-            console.log(key + ':' + CD[key]);
+							console.log("CD[" + i + "]=");
+							CD = CDs[i];
+							for(key in CD){
+            					console.log(key + ':' + CD[key]);
          }
       }
 						/* CDs representera un objet JSON retourné par le serveur */
